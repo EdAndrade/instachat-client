@@ -4,7 +4,9 @@
     box-sizing: border-box;
 }
 
-button{
+button, input{
+    border-style: none;
     border: none;
     cursor: pointer;
+    outline: none;
 }

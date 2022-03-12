@@ -11,18 +11,43 @@
             <form @submit.prevent>
 
                 <div class="input-validation">
-                    <input type="text">
+                    <input placeholder="Nome do chat" type="text">
 
                     <div class="validations">
-                        
+
+                        <div class="validation">
+
+                            <div class="icon">
+
+                            </div>
+
+                            <p>Mais de 4 caracteres</p>
+                        </div>
+
+                        <div class="validation">
+
+                            <div class="icon">
+
+                            </div>
+
+                            <p>Preenchido</p>
+                        </div>
                     </div>
                 </div>
 
                 <div class="input-validation">
-                    <input type="text">
+                    <input placeholder="Quantidade de usuários" type="text">
                     
                     <div class="validations">
 
+                        <div class="validation">
+
+                            <div class="icon">
+
+                            </div>
+
+                            <p>Apenas números</p>
+                        </div>
                     </div>
                 </div>
 
