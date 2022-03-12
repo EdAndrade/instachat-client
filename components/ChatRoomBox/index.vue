@@ -18,7 +18,7 @@
                         <div class="validation">
 
                             <div class="icon">
-
+                                <i class="fas fa-check"></i>
                             </div>
 
                             <p>Mais de 4 caracteres</p>
@@ -27,7 +27,7 @@
                         <div class="validation">
 
                             <div class="icon">
-
+                                <i class="fas fa-check"></i>
                             </div>
 
                             <p>Preenchido</p>
@@ -43,7 +43,7 @@
                         <div class="validation">
 
                             <div class="icon">
-
+                                <i class="fas fa-check"></i>
                             </div>
 
                             <p>Apenas números</p>

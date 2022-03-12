@@ -13,6 +13,7 @@
     "build-pipeline": "yarn test && git push origin master"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.0.0",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/style-resources": "^1.2.1",
     "core-js": "^3.15.1",

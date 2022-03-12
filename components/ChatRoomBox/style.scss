@@ -49,6 +49,7 @@
                 .validations{
                     width: 100%;
                     display: flex;
+                    flex-wrap: wrap;
                     margin-top: 7px;
                     margin-bottom: 15px;
                     
@@ -56,11 +57,10 @@
                         width: auto;
                         border-radius: 3em;
                         background-color: #c4c4c4;
-                        padding: 5px 7px;
+                        padding: 5px 12px 5px 7px;
                         font-size: 0.7em;
                         font-weight: bold;
                         font-family: 'Roboto';
-                        color: #666666;
                         display: flex;
                         align-items: center;
                         margin-right: 10px;
@@ -70,10 +70,19 @@
                             height: 15px;
                             border-radius: 100%;
                             background-color: #666666;
+                            color: #333;
+                            display: flex;
+                            align-items: center;
+
+                            i{
+                                margin: 2px auto 0 auto;
+                                font-size: 0.8em;
+                            }
                         }
 
                         p{
-                            margin-left: 15px;
+                            margin-left: 10px;
+                            color: #666666;
                         }
                     }
                 }

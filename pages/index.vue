@@ -100,6 +100,7 @@
 			}
 
 			#enterAToChatRoom{
+				z-index: 9;
 
 				button{
 					width: 158px;
