@@ -11,14 +11,14 @@
             <form @submit.prevent>
 
                 <div class="input-validation">
-                    <input placeholder="Seu nome para o chat" type="text">
+                    <input placeholder="Seu nome para o chat" v-model="userName" type="text">
                 </div>
 
                 <div class="input-validation">
-                    <input placeholder="Código do chat" type="text">
+                    <input placeholder="Código do chat" v-model="chatCode" type="text">
                 </div>
 
-                <button type="submit">
+                <button type="submit" @click="validate()">
                     Entrar
                 </button>
                 

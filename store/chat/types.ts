@@ -1,3 +1,10 @@
 export interface State {
-	chatCode: string,
+	chatRoom: ChatRoom
+}
+
+export interface ChatRoom {
+	code: string,
+	name: string,
+	usersQt: number,
+	userName: ''
 }

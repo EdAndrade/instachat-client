@@ -1,5 +1,10 @@
 import { State } from './types'
 
 export default (): State => ({
-	chatCode: ''
+	chatRoom: {
+		code: '',
+		name: '',
+		usersQt: 0,
+		userName: ''
+	}
 });
