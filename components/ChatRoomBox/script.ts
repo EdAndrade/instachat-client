@@ -17,14 +17,7 @@ export default Vue.extend({
 
         validate(){
             this.createChatRoomAndRedirect()
-        },
-
-        async getChatRoom(chatCode: string){
-            return await this.$axios.post('get_chat_by_chatcode', {
-                code: chatCode
-            })
-        },
-        
+        },        
     
         async createChatRoom(chatName: string, peopleQtd: number){
             return await this.$axios.post('create_chat', {
@@ -52,8 +45,5 @@ export default Vue.extend({
     },
 
     mounted(){
-        this.getChatRoom('e97d99e350b69b1b07ce1866e041771e').then( response => {
-            console.log(response)
-        })
     }
 });
