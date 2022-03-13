@@ -88,15 +88,18 @@
                 }
             }
 
-            button{
-                width: 100%;
-                border-radius: 7px;
-                background-color: #D1BDE5;
-                color: #332441;
-                font-family: 'Roboto';
-                font-weight: bold;
-                height: 47px;
+            .button-loading{
                 margin-top: 64px;
+
+                button{
+                    width: 100%;
+                    border-radius: 7px;
+                    background-color: #D1BDE5;
+                    color: #332441;
+                    font-family: 'Roboto';
+                    font-weight: bold;
+                    height: 47px;
+                }
             }
         }
     }

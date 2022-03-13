@@ -1,0 +1,22 @@
+@keyframes loading{
+
+	50%{
+		transform: rotate(180deg)
+	}
+
+	100%{
+		transform: rotate(360deg)
+	}
+		
+}
+
+.loading-animation{
+    border: 3px solid #422859;
+	border-radius: 100%;
+	border-bottom-color: rgba(#422859, 0.4);
+	animation: loading infinite 500ms linear;
+	background: transparent;
+    width: 47px;
+	height: 47px;
+	margin: auto;
+}

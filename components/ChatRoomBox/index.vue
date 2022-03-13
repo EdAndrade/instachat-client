@@ -11,7 +11,7 @@
             <form @submit.prevent>
 
                 <div class="input-validation">
-                    <input placeholder="Nome do chat" type="text">
+                    <input placeholder="Nome do chat" v-model="chatName" type="text">
 
                     <div class="validations">
 
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="input-validation">
-                    <input placeholder="Quantidade de usuários" type="number">
+                    <input placeholder="Quantidade de usuários" v-model.number="peopleQtd" type="number">
                     
                     <div class="validations">
 
@@ -51,10 +51,13 @@
                     </div>
                 </div>
 
-                <button type="submit">
-                    Create
-                </button>
-                
+                <div class="button-loading">
+                    <div class="loading-animation" v-if="creatingChat"></div>
+                    <button type="submit" v-else @click="validate()">
+                        Create
+                    </button>
+                </div>
+    
             </form>
         </div>
 
