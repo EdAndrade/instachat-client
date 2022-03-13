@@ -1,23 +1,28 @@
 <template>
 
 	<section id="indexSection">
+		<ChatRoomRequest 
+			v-if="isChatRoomRequestVisible"
+			v-on:closeChatRoomRequest="changeChatRoomRequestVisibility()"
+		/>
 
 		<div id="top">
 
 			<div id="introduction">
 
 				<div class="title">
-					<p>Eazy and instant chat rooms</p>
+					<p>Salas de chat fáceis e rápidas</p>
 				</div>
 
 				<div class="desc">
-					<p>Create simple and quickly chat rooms to interct with your you friends, securily and secretly 
-						without anybody necessary knows</p>
+					<p>Cria salas de chat de maneira simples e rápida para interagir com quem você quiser, de maneira segura
+						e secreta sem ninguém necessariamente saber
+					</p>
 				</div>
 			</div>
 
 			<div id="enterAToChatRoom">
-				<button>Get into a chat room</button>
+				<button @click="changeChatRoomRequestVisibility()">Get into a chat room</button>
 			</div>
 		</div>
 
@@ -28,7 +33,7 @@
 		</div>
 
 		<div class="slogan">
-			<p>Criado por Edmilson Andrade</p>
+			<a target="_blank" href="https://edmilson.ao">Criado por Edmilson Andrade</a>
 		</div>
 
 	</section>
@@ -38,11 +43,27 @@
 <script lang="ts">
 	import Vue from "vue";
 	import ChatRoomBox from '@/components/ChatRoomBox/index.vue'
+	import ChatRoomRequest from '@/components/ChatRoomRequest/index.vue'
 
 	export default Vue.extend({
 
+		data(){
+
+			return {
+				isChatRoomRequestVisible: false
+			}
+		},
+
 		components: {
-			ChatRoomBox
+			ChatRoomBox,
+			ChatRoomRequest
+		},
+
+		methods: {
+
+			changeChatRoomRequestVisibility(){
+				this.isChatRoomRequestVisible = !this.isChatRoomRequestVisible
+			}
 		}
 	});
 </script>
@@ -71,9 +92,12 @@
 			position: absolute;
 			bottom: 20px;
 			left: 20px;
-			color: rgba(#fff, 0.6);
 			font-size: 0.7em;
 			font-family: 'Roboto';
+
+			a{
+				color: #fff;
+			}
 		}
 
 		#top{

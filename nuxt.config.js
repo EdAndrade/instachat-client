@@ -29,7 +29,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/fortawesome.ts'
+    '@/plugins/fortawesome.ts',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -48,7 +48,9 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: 'http://localhost:8085/api/chatroom/'
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

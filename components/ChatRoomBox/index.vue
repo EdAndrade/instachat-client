@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="input-validation">
-                    <input placeholder="Quantidade de usuários" type="text">
+                    <input placeholder="Quantidade de usuários" type="number">
                     
                     <div class="validations">
 
@@ -62,5 +62,5 @@
 
 </template>
 
-<script src="./script.ts"></script>
+<script src="./script.ts" lang="ts"></script>
 <style scoped lang="scss" src="./style.scss"></style>
