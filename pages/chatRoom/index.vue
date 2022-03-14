@@ -27,6 +27,21 @@
 
         <div class="chatSection">
 
+            <div class="messages">
+
+                <div 
+                    class="message"
+                    :class="{ 'flex-end': message.me }"
+                    v-for="(message, index) in messages" :key="index"
+                >
+
+                    <div :class="{ 'my-message': message.me, 'other-user-message': !message.me }">
+                        <p>{{ message.user }}</p>
+                        <p>{{ message.data }}</p>
+                    </div>
+
+                </div>
+            </div>
         </div>
 
         <div class="textBox">

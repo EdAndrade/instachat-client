@@ -1,5 +1,11 @@
 import Vue from 'vue'
 
+interface message{
+    data: string,
+    user: string,
+    me: boolean
+}
+
 export default Vue.extend({
 
     data(){
@@ -10,7 +16,7 @@ export default Vue.extend({
             chatRoom: this.$store.state.chat.chatRoom,
             userMessage: '',
             socket,
-            messages: []
+            messages: Array<message>()
         }
     },
 
@@ -20,7 +26,7 @@ export default Vue.extend({
 
             console.log(`${this.chatRoom.code}&${this.chatRoom.userName}`)
 
-            this.socket = new WebSocket(`ws://localhost:8081/${this.chatRoom.code}&${this.chatRoom.userName}`)
+            this.socket = new WebSocket(`ws://192.168.100.65:8081/${this.chatRoom.code}&${this.chatRoom.userName}`)
             this.socket.addEventListener('open', (event: any) => {
 
                 // this.socket.send(JSON.stringify({
@@ -36,7 +42,6 @@ export default Vue.extend({
 
         sendMessage(){
 
-            console.log(this.chatRoom.code, this.userMessage)
             this.socket.send(JSON.stringify({
                 code: this.chatRoom.code,
                 message: {
@@ -47,7 +52,13 @@ export default Vue.extend({
         },
 
         receiveMessage(message: string){
-            alert(message)
+            let decodedMessage: message = JSON.parse(message)
+
+            this.messages.push({
+                ...decodedMessage,
+                user: decodedMessage.user !== this.chatRoom.userName ? decodedMessage.user : 'Eu',
+                me: decodedMessage.user !== this.chatRoom.userName ? false : true
+            })
         }
     },
 

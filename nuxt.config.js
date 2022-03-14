@@ -50,7 +50,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'http://localhost:8085/api/chatroom/'
+    baseURL: 'http://192.168.100.65:8085/api/chatroom/'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
