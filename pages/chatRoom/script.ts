@@ -10,6 +10,7 @@ export default Vue.extend({
             chatRoom: this.$store.state.chat.chatRoom,
             userMessage: '',
             socket,
+            messages: []
         }
     },
 
@@ -38,7 +39,10 @@ export default Vue.extend({
             console.log(this.chatRoom.code, this.userMessage)
             this.socket.send(JSON.stringify({
                 code: this.chatRoom.code,
-                message: this.userMessage
+                message: {
+                    data: this.userMessage,
+                    user: this.chatRoom.userName
+                }
             }))
         },
 
