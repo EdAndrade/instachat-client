@@ -9,14 +9,20 @@ export default  Vue.extend({
         return {
             userName: '',
             chatCode: '',
-            gettingChatRoom: false
+            gettingChatRoom: false,
+            warnInputs: false
         }
     },
 
     methods: {
 
         validate(){
-            this.getChatRoomAndVerify(this.chatCode)
+            if( this.userName !== '' && this.chatCode !== '' ){
+                this.getChatRoomAndVerify(this.chatCode)
+            }else{
+                this.warnInputs = true
+                setTimeout( () => { this.warnInputs = false }, 2000)
+            }
         },
 
         async getChatRoom(chatCode: string){
