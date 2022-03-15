@@ -21,6 +21,7 @@ export default Vue.extend({
             chatName: '',
             peopleQtd: '',
             creatingChat: false,
+            warnInputs: false,
 
             chatNameValidation: {
                 fullfiled: false,
@@ -35,20 +36,27 @@ export default Vue.extend({
 
     methods: {
 
-        validateChatName(){
+        validateChatName(): boolean{
             this.chatNameValidation.fullfiled = this.chatName !== ''
             this.chatNameValidation.fourChar = this.chatName.length >= 4
 
             return (this.chatNameValidation.fullfiled && this.chatNameValidation.fourChar)
         },
 
-        validatePeopleQtd(){
+        validatePeopleQtd(): boolean{
             this.peopleQtdValidation.onlyNumbers = !!Number(this.peopleQtd)
             return this.peopleQtdValidation.onlyNumbers
         },
 
-        validate(){
-            this.createChatRoomAndRedirect()
+        validate(): void{
+
+            if( this.validateChatName() === true && this.validatePeopleQtd() === true){
+                this.createChatRoomAndRedirect()
+            }else{
+                this.warnInputs = true
+                setTimeout( () => { this.warnInputs = false }, 2000)
+            }
+                
         },        
     
         async createChatRoom(chatName: string, peopleQtd: number){

@@ -44,6 +44,11 @@
                     font-family: 'Roboto';
                     font-weight: 600;
                     color: #fff;
+                    transition: all 0.5s;
+                }
+                
+                .warnInputs{
+                    border: 1px solid red;
                 }
 
                 .validations{

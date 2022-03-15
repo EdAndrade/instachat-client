@@ -11,7 +11,7 @@
             <form @submit.prevent>
 
                 <div class="input-validation">
-                    <input placeholder="Nome do chat" v-model="chatName" type="text">
+                    <input placeholder="Nome do chat" v-model="chatName" type="text" :class="{ warnInputs: warnInputs }">
 
                     <div class="validations">
 
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="input-validation">
-                    <input placeholder="Quantidade de usuários" v-model.number="peopleQtd" type="number">
+                    <input placeholder="Quantidade de usuários" v-model.number="peopleQtd" type="number" :class="{ warnInputs: warnInputs }">
                     
                     <div class="validations">
 
