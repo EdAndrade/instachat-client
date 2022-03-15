@@ -44,7 +44,7 @@ export default Vue.extend({
         },
 
         validatePeopleQtd(): boolean{
-            this.peopleQtdValidation.onlyNumbers = !!Number(this.peopleQtd)
+            this.peopleQtdValidation.onlyNumbers = !!Number(this.peopleQtd) && Number(this.peopleQtd) > 0
             return this.peopleQtdValidation.onlyNumbers
         },
 
