@@ -2,6 +2,13 @@ import Vue from "vue";
 
 export default Vue.extend({
 
+    watch: {
+        chatName(){
+            this.validateChatName()
+            console.log(this.chatNameValidation)
+        }
+    },
+
     data(){
 
         let creatingChat: boolean
@@ -9,11 +16,23 @@ export default Vue.extend({
         return{
             chatName: '',
             peopleQtd: '',
-            creatingChat: false
+            creatingChat: false,
+
+            chatNameValidation: {
+                fullfiled: false,
+                fourChar: false
+            }
         }
     },
 
     methods: {
+
+        validateChatName(){
+            this.chatNameValidation.fullfiled = this.chatName !== ''
+            this.chatNameValidation.fourChar = this.chatName.length >= 4
+
+            return (this.chatNameValidation.fullfiled && this.chatNameValidation.fourChar)
+        },
 
         validate(){
             this.createChatRoomAndRedirect()

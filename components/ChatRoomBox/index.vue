@@ -15,7 +15,7 @@
 
                     <div class="validations">
 
-                        <div class="validation">
+                        <div class="validation" :class="{ valid: chatNameValidation.fourChar }">
 
                             <div class="icon">
                                 <i class="fas fa-check"></i>
@@ -24,7 +24,7 @@
                             <p>Mais de 4 caracteres</p>
                         </div>
 
-                        <div class="validation">
+                        <div class="validation" :class="{ valid: chatNameValidation.fullfiled }">
 
                             <div class="icon">
                                 <i class="fas fa-check"></i>

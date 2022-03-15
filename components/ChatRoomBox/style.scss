@@ -52,6 +52,17 @@
                     flex-wrap: wrap;
                     margin-top: 7px;
                     margin-bottom: 15px;
+
+                    .valid{
+                        background-color: rgba(greenyellow, 0.7) !important;
+                        .icon{
+                            background-color: green !important;
+                            color: #fff !important;
+                        }
+                        p{
+                            color: #fff !important;
+                        }
+                    }
                     
                     .validation{
                         width: auto;
