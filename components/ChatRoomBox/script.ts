@@ -3,9 +3,13 @@ import Vue from "vue";
 export default Vue.extend({
 
     watch: {
+
         chatName(){
             this.validateChatName()
-            console.log(this.chatNameValidation)
+        },
+
+        peopleQtd(){
+            this.validatePeopleQtd()
         }
     },
 
@@ -21,6 +25,10 @@ export default Vue.extend({
             chatNameValidation: {
                 fullfiled: false,
                 fourChar: false
+            },
+
+            peopleQtdValidation: {
+                onlyNumbers: false
             }
         }
     },
@@ -32,6 +40,11 @@ export default Vue.extend({
             this.chatNameValidation.fourChar = this.chatName.length >= 4
 
             return (this.chatNameValidation.fullfiled && this.chatNameValidation.fourChar)
+        },
+
+        validatePeopleQtd(){
+            this.peopleQtdValidation.onlyNumbers = !!Number(this.peopleQtd)
+            return this.peopleQtdValidation.onlyNumbers
         },
 
         validate(){

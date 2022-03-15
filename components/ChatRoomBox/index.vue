@@ -40,7 +40,7 @@
                     
                     <div class="validations">
 
-                        <div class="validation">
+                        <div class="validation" :class="{ valid: peopleQtdValidation.onlyNumbers }">
 
                             <div class="icon">
                                 <i class="fas fa-check"></i>
