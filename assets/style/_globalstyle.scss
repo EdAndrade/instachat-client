@@ -14,3 +14,17 @@ button, input{
 html,body{
     height: 100%;
 }
+
+.vs-notification-parent{
+    font-family: 'Roboto';
+}
+
+.vs-notification{
+    border-radius: 10px !important;
+}
+
+@media screen and ( max-width: 600px ){
+    .vs-notification{
+        border-radius: 0 !important;
+    }
+}

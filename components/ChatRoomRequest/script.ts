@@ -10,7 +10,7 @@ export default  Vue.extend({
             userName: '',
             chatCode: '',
             gettingChatRoom: false,
-            warnInputs: false
+            warnInputs: false,
         }
     },
 
@@ -46,13 +46,21 @@ export default  Vue.extend({
                 
                 this.$nuxt.$vs.notification({
                     progress: 'auto',
-                    color: '#2d2341',
-                    position: 'top-right',
+                    color: '#dd2121',
+                    position: 'bottom-right',
                     title: 'Sala de chat não existe',
                     text: 'A sala de chat solicitada não existe'
                 })
                 
             }else{
+
+                this.$nuxt.$vs.notification({
+                    progress: 'auto',
+                    color: '#41cf06',
+                    position: 'bottom-right',
+                    title: 'Sala encontrada! Redirecionando',
+                    text: 'Redirecionando para sala de chat solicitada'
+                })
 
                 this.$store.commit('chat/SET_CHATROOM', {
                     code: data.code,
