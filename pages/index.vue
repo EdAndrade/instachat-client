@@ -22,7 +22,7 @@
 			</div>
 
 			<div id="enterAToChatRoom">
-				<button @click="changeChatRoomRequestVisibility()">Get into a chat room</button>
+				<button @click="changeChatRoomRequestVisibility()">Entrar em uma sala</button>
 			</div>
 		</div>
 
@@ -73,9 +73,10 @@
 	#indexSection{
 		width: 100%;
 		height: 100vh;
-		background-color: #332441;
+		background-color: $color-main-1;
 		padding: 40px;
 		overflow: hidden;
+		position: relative;
 
 		.bottomImage{
 			position: absolute;
@@ -96,7 +97,7 @@
 			font-family: 'Roboto';
 
 			a{
-				color: #fff;
+				color: $color-light-4;
 			}
 		}
 
@@ -111,13 +112,13 @@
 					width: 540px;
 					font-size: 4em;
 					font-family: 'Gravitas One';
-					color: #fff;
+					color: $color-light-4;
 				}
 				
 				.desc{
 					width: 470px;
 					font-family: 'Roboto';
-					color: rgba(#fff, 0.6);
+					color: rgba($color-light-4, 0.6);
 					font-size: 0.9em;
 					margin-top: 20px;
 				}
@@ -128,13 +129,44 @@
 
 				button{
 					width: 158px;
-					background-color: #5B238C;
-					border-radius: 5px;
+					background-color: $color-main-2;
+					border-radius: 10px;
 					padding: 10px;
-					color: #fff;
+					color: $color-light-4;
 					font-weight: bold;
 				}
 			}
 		}
 	}
+
+	@media screen and (max-width: 1070px){
+
+		#indexSection{
+			display: flex;
+			flex-flow: column;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			height: auto;
+
+			.slogan{
+				position: relative;
+				bottom: 0;
+				left: 0;
+				margin-top: 30px;
+			}
+
+			#top{
+				justify-content: center;
+				#introduction{
+					display: none;
+				}
+				#enterAToChatRoom{
+					margin-bottom: 20px;
+					button { width: 329px; }
+				}
+			}
+		}
+	}
+
 </style>

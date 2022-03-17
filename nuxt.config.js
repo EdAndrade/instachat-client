@@ -10,7 +10,7 @@ export default {
     },
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1,maximum-scale=1.0,user-scalable=0' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
@@ -27,6 +27,12 @@ export default {
     '@/assets/style/index.scss',
     'vuesax/dist/vuesax.css',
   ],
+
+  styleResources: {
+    scss: [
+      '@/assets/style/_variables.scss',
+    ],
+  },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -45,7 +51,8 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    "@nuxtjs/style-resources"
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

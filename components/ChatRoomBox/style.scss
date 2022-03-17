@@ -11,8 +11,8 @@
 
     .chatRoomBoxContent{
         width: 329px;
-        height: 416px;
-        background-color: #1C1126;
+        height: auto;
+        background-color: $color-main-3;
         z-index: 60;
         padding: 30px;
         border-radius: 10px;
@@ -20,7 +20,7 @@
 
         .title{
             text-align: center;
-            color: #fff;
+            color: $color-light-4;
             font-family: 'Roboto';
             font-weight: bold;
             font-size: 0.87em;
@@ -38,12 +38,12 @@
                 input{
                     width: 100%;
                     height: 47px;
-                    background-color: #422859;
+                    background-color: $color-main-5;
                     border-radius: 7px;
                     padding: 0 15px;
                     font-family: 'Roboto';
                     font-weight: 600;
-                    color: #fff;
+                    color: $color-light-4;
                     transition: all 0.5s;
                 }
                 
@@ -55,24 +55,24 @@
                     width: 100%;
                     display: flex;
                     flex-wrap: wrap;
-                    margin-top: 7px;
                     margin-bottom: 15px;
 
                     .valid{
                         background-color: rgba(greenyellow, 0.7) !important;
                         .icon{
                             background-color: green !important;
-                            color: #fff !important;
+                            color: $color-light-4 !important;
                         }
                         p{
-                            color: #fff !important;
+                            color: $color-light-4 !important;
                         }
                     }
                     
                     .validation{
+                        margin-top: 7px;
                         width: auto;
                         border-radius: 3em;
-                        background-color: #c4c4c4;
+                        background-color: $color-light-2;
                         padding: 5px 12px 5px 7px;
                         font-size: 0.7em;
                         font-weight: bold;
@@ -85,8 +85,8 @@
                             width: 15px;
                             height: 15px;
                             border-radius: 100%;
-                            background-color: #666666;
-                            color: #333;
+                            background-color: $color-dark-3;
+                            color: $color-light-4;
                             display: flex;
                             align-items: center;
 
@@ -98,7 +98,7 @@
 
                         p{
                             margin-left: 10px;
-                            color: #666666;
+                            color: $color-dark-3;
                         }
                     }
                 }
@@ -110,11 +110,33 @@
                 button{
                     width: 100%;
                     border-radius: 7px;
-                    background-color: #D1BDE5;
-                    color: #332441;
+                    background-color: $color-main-6;
+                    color: $color-main-3;
                     font-family: 'Roboto';
                     font-weight: bold;
                     height: 47px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1070px){
+
+    .chatRoomBox{
+        position: relative;
+        justify-content: center;
+        padding-right: 0;
+        width: 329px;
+        height: 416px;
+
+        .chatRoomBoxContent{
+            form{
+                .input-validation{
+                    .validations{
+                        .validation{
+                        }
+                    }
                 }
             }
         }

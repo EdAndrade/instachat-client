@@ -60,27 +60,30 @@ export default Vue.extend({
         },        
     
         async createChatRoom(chatName: string, peopleQtd: number){
-            return await this.$axios.post('create_chat', {
-                chatName,
-                peopleQtd
-            })
+            
+            try{
+
+                return await this.$axios.post('create_chat', {
+                    chatName,
+                    peopleQtd
+                })
+
+            }catch(error){
+                
+            }
         },
 
         createChatRoomAndRedirect(){
 
             this.creatingChat = true
-            this.createChatRoom(this.chatName, Number(this.peopleQtd) ).then( response => {
+            
+            try{
+                this.createChatRoom(this.chatName, Number(this.peopleQtd) ).then( response => {
+                    this.creatingChat = false
+                })
+            }catch(error){
                 this.creatingChat = false
-
-                // this.$vs.notification({
-                //     progress    : 'auto',
-                //     color       : body.color,
-                //     position    : 'top-right',
-                //     title       : body.title,
-                //     text        : body.text,
-                //     square		: true
-                // })
-            })
+            }
         }
     },
 
