@@ -22,11 +22,22 @@
 
     #box{
         width: 319px;
-        height: 285px;
+        height: auto;
         background-color: $color-main-2;
         padding: 30px;
         border-radius: 10px;
         margin: auto;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+
+        .title{
+            margin-bottom: 30px;
+            color: $color-light-1;
+            font-weight: bold;
+            font-family: 'Roboto';
+            font-size: 0.87em;
+        }
 
         form{
             width: 100%;
@@ -58,15 +69,18 @@
                 }
             }
 
-            button{
-                width: 100%;
-                border-radius: 7px;
-                background-color: $color-main-6;
-                color: $color-main-1;
-                font-family: 'Roboto';
-                font-weight: bold;
-                height: 47px;
+            .button-loading{
                 margin-top: 64px;
+
+                button{
+                    width: 100%;
+                    border-radius: 7px;
+                    background-color: $color-main-6;
+                    color: $color-main-1;
+                    font-family: 'Roboto';
+                    font-weight: bold;
+                    height: 47px;
+                }
             }
         }
     }

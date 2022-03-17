@@ -43,7 +43,7 @@ export default  Vue.extend({
         handleChatRoomResponse(data: any){
 
             if(data === null){
-                
+                this.gettingChatRoom = false
                 this.$nuxt.$vs.notification({
                     progress: 'auto',
                     color: '#dd2121',

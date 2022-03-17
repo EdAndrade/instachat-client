@@ -7,6 +7,10 @@
         </div>
 
         <div id="box">
+
+            <div class="title">
+                <p>Entrar em uma sala de chat</p>
+            </div>
             
             <form @submit.prevent>
 
@@ -18,9 +22,12 @@
                     <input placeholder="Código do chat" v-model="chatCode" type="text" :class="{ warnInputs: warnInputs }">
                 </div>
 
-                <button type="submit" @click="validate()">
-                    Entrar
-                </button>
+                <div class="button-loading">
+                    <div class="loading-animation" v-if="gettingChatRoom"></div>
+                    <button type="submit" v-else @click="validate()">
+                        Entrar
+                    </button>
+                </div>
                 
             </form>
         </div>
