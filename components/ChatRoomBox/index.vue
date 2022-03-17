@@ -5,7 +5,7 @@
         <div class="chatRoomBoxContent">
 
             <div class="title">
-                <p>Create a new chat room</p>
+                <p>Criar nova sala de chat</p>
             </div>
 
             <form @submit.prevent>
@@ -54,7 +54,7 @@
                 <div class="button-loading">
                     <div class="loading-animation" v-if="creatingChat"></div>
                     <button type="submit" v-else @click="validate()">
-                        Create
+                        Criar
                     </button>
                 </div>
     

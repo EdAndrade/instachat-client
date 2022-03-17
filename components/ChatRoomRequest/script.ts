@@ -43,7 +43,15 @@ export default  Vue.extend({
         handleChatRoomResponse(data: any){
 
             if(data === null){
-                alert("Desculpa mas este chat não existe!")
+                
+                this.$nuxt.$vs.notification({
+                    progress: 'auto',
+                    color: '#2d2341',
+                    position: 'top-right',
+                    title: 'Sala de chat não existe',
+                    text: 'A sala de chat solicitada não existe'
+                })
+                
             }else{
 
                 this.$store.commit('chat/SET_CHATROOM', {
