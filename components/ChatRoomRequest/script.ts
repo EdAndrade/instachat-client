@@ -2,7 +2,20 @@ import Vue from 'vue'
 
 export default  Vue.extend({
 
-    
+    props: {
+
+        newChatCode: {
+            type: String,
+            required: true
+        }
+    },
+
+    watch: {
+
+        newChatCode(){
+            this.chatCode = this.newChatCode
+        }
+    },
 
     data(){
         

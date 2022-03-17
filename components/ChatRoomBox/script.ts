@@ -80,6 +80,18 @@ export default Vue.extend({
             try{
                 this.createChatRoom(this.chatName, Number(this.peopleQtd) ).then( response => {
                     this.creatingChat = false
+                    
+                    if(response){
+                        this.$emit('chatCodeMessage', response.data)
+                        this.$nuxt.$vs.notification({
+                            progress: 'auto',
+                            color: '#41cf06',
+                            position: 'bottom-right',
+                            title: 'Chat criado com sucesso!',
+                            text: 'Código do chat preenchido automaticamente'
+                        })
+                    }
+                        
                 })
             }catch(error){
                 this.creatingChat = false

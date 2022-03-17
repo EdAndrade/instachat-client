@@ -2,8 +2,9 @@
 
 	<section id="indexSection">
 		<ChatRoomRequest 
-			v-if="isChatRoomRequestVisible"
+			v-show="isChatRoomRequestVisible"
 			v-on:closeChatRoomRequest="changeChatRoomRequestVisibility()"
+			:newChatCode="chatCode"
 		/>
 
 		<div id="top">
@@ -26,7 +27,9 @@
 			</div>
 		</div>
 
-		<ChatRoomBox/>
+		<ChatRoomBox
+			v-on:chatCodeMessage="setChatCodeAndChangeChatRoomRequestVisibility"
+		/>
 
 		<div class="bottomImage">
 			<img src="~assets/images/wave.png" alt="">
@@ -50,7 +53,8 @@
 		data(){
 
 			return {
-				isChatRoomRequestVisible: false
+				isChatRoomRequestVisible: false,
+				chatCode: ''
 			}
 		},
 
@@ -63,6 +67,11 @@
 
 			changeChatRoomRequestVisibility(){
 				this.isChatRoomRequestVisible = !this.isChatRoomRequestVisible
+			},
+
+			setChatCodeAndChangeChatRoomRequestVisibility(data: any){
+				this.chatCode = data.code
+				this.changeChatRoomRequestVisibility()
 			}
 		}
 	});
