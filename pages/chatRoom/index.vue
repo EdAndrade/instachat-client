@@ -47,7 +47,7 @@
             </div>
 
             <div class="textBox">
-                <input type="text" placeholder="Escreva a mensagem" v-model="userMessage">
+                <input @keyup.enter="sendMessage()" type="text" placeholder="Escreva a mensagem" v-model="userMessage">
                 <button @click="sendMessage()">
                     <i class="fas fa-paper-plane"></i>
                 </button>
