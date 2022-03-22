@@ -22,7 +22,7 @@
                     </p>
 
                     <div class="copyToClipBoard">
-
+                        <i class="far fa-clipboard"></i>
                     </div>
                 </div>
             </div>

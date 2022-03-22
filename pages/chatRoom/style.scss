@@ -12,7 +12,8 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 60px;
+        flex-wrap: wrap;
+        height: 70px;
         padding: 15px;
 
         .left{
@@ -29,6 +30,9 @@
         }
 
         .right{
+            display: flex;
+            align-items: center;
+
             .chatCode{
                 color: #fff;
                 font-size: 0.87em;
@@ -37,6 +41,17 @@
                 span{
                     text-decoration: underline;
                 }
+            }
+
+            .copyToClipBoard{
+                width: 40px;
+                height: 40px;
+                border-radius: 100%;
+                background-color: $color-main-3;
+                color: $color-light-4;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
         }
     }
@@ -117,8 +132,9 @@
                 .my-message, .other-user-message{
                     display: inline-block;
                     width: auto;
-                    padding: 10px 20px;
-                    border-radius: 3em;
+                    max-width: 60%;
+                    padding: 10px 15px;
+                    border-radius: 20px;
                     min-width: 100px;
                     font-size: 0.9em;
                     color: #fff;
@@ -127,12 +143,24 @@
 
                 .my-message{
                     right: 0;
-                    background: linear-gradient(90deg, rgba(131,58,180,0.5) 0%, rgba(111,29,253,0.5) 20%, rgba(213,69,252,0.5) 100%);
+                    background: linear-gradient(90deg, rgba(131,58,180,0.7) 0%, rgba(111,29,253,0.7) 20%, rgba(213,69,252,0.7) 100%);
                 }
     
                 .other-user-message{
                     border: 2px solid #b989e5;
                 }
+            }
+        }
+    }
+}
+
+@media screen and ( max-width: 600px ){
+    #chatRoomMain{
+        .header{
+            height: auto;
+
+            .right{
+                margin-top: 10px;
             }
         }
     }
