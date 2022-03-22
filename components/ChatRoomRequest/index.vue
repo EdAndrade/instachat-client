@@ -15,10 +15,12 @@
             <form @submit.prevent>
 
                 <div class="input-validation">
-                    <input placeholder="Seu nome para o chat" v-model="userName" type="text" :class="{ warnInputs: warnInputs }">
+                    <label>Nome</label>
+                    <input placeholder="Meu nome" v-model="userName" type="text" :class="{ warnInputs: warnInputs }">
                 </div>
 
                 <div class="input-validation">
+                    <label>Código do chat</label>
                     <input placeholder="Código do chat" v-model="chatCode" type="text" :class="{ warnInputs: warnInputs }">
                 </div>
 

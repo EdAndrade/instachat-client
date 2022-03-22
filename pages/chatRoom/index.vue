@@ -2,54 +2,57 @@
 
     <section id="chatRoomMain">
 
-        <div class="header">
+        <section id="content">
 
-            <div class="left">
-                <p class="chatRoomName">
-                    Sala: {{ chatRoom.name }}
-                </p>
+            <div class="header">
 
-                <p class="chatRoomUsersLimit">
-                    Limite de usuários: {{ chatRoom.usersQt }}
-                </p>
-            </div>
-            
-            <div class="right">
-                <p class="chatCode">
-                    Código do chat: <span>{{ chatRoom.code }}</span>
-                </p>
+                <div class="left">
+                    <p class="chatRoomName">
+                        Sala: {{ chatRoom.name }}
+                    </p>
 
-                <div class="copyToClipBoard">
-
+                    <p class="chatRoomUsersLimit">
+                        Limite de usuários: {{ chatRoom.usersQt }}
+                    </p>
                 </div>
-            </div>
-        </div>
+                
+                <div class="right">
+                    <p class="chatCode">
+                        Código do chat: <span>{{ chatRoom.code }}</span>
+                    </p>
 
-        <div class="chatSection">
+                    <div class="copyToClipBoard">
 
-            <div class="messages">
-
-                <div 
-                    class="message"
-                    :class="{ 'flex-end': message.me }"
-                    v-for="(message, index) in messages" :key="index"
-                >
-
-                    <div :class="{ 'my-message': message.me, 'other-user-message': !message.me }">
-                        <p>{{ message.user }}</p>
-                        <p>{{ message.data }}</p>
                     </div>
-
                 </div>
             </div>
-        </div>
 
-        <div class="textBox">
-            <input type="text" v-model="userMessage">
-            <button @click="sendMessage()">
-                <i class="fas fa-paper-plane"></i>
-            </button>
-        </div>
+            <div class="chatSection">
+
+                <div class="messages">
+
+                    <div 
+                        class="message"
+                        :class="{ 'flex-end': message.me }"
+                        v-for="(message, index) in messages" :key="index"
+                    >
+
+                        <div :class="{ 'my-message': message.me, 'other-user-message': !message.me }">
+                            <p>{{ message.user }}</p>
+                            <p>{{ message.data }}</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="textBox">
+                <input type="text" placeholder="Escreva a mensagem" v-model="userMessage">
+                <button @click="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </section>
     </section>
 
 </template>
