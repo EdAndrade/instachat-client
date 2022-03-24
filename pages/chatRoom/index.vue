@@ -38,7 +38,7 @@
                     >
 
                         <div :class="{ 'my-message': message.me, 'other-user-message': !message.me }">
-                            <p>{{ message.user }}</p>
+                            <p class="theUser">{{ message.user }}</p>
                             <p>{{ message.data }}</p>
                         </div>
 
