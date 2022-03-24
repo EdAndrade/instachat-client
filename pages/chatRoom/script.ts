@@ -8,6 +8,8 @@ interface message{
 
 export default Vue.extend({
 
+    middleware: 'checkChatRoomStatus',
+
     data(){
 
         let socket: any
