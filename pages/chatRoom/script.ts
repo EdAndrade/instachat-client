@@ -34,11 +34,12 @@ export default Vue.extend({
 
             this.socket = new WebSocket(`ws://192.168.100.44:8081/${this.chatRoom.code}&${this.chatRoom.userName}`)
             this.socket.addEventListener('open', (event: any) => {
-
-                // this.socket.send(JSON.stringify({
-                //     code: "e97d99e350b69b1b07ce1866e041771",
-                //     message: "Oi"
-                // }))
+                this.socket.send(JSON.stringify({
+                    code: this.chatRoom.code,
+                    message: {
+                        data: `[${this.chatRoom.userName}] entrou na sala`,
+                    }
+                }))
             })
 
             this.socket.addEventListener('message', (event: any) => {
