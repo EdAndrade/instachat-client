@@ -11,12 +11,16 @@ export default Vue.extend({
     data(){
 
         let socket: any
+        let ringtone: any
+        let invibleNotificationButton: any
 
         return {
             chatRoom: this.$store.state.chat.chatRoom,
             userMessage: '',
             socket,
-            messages: Array<message>()
+            messages: Array<message>(),
+            ringtone,
+            invibleNotificationButton
         }
     },
 
@@ -26,7 +30,7 @@ export default Vue.extend({
 
             console.log(`${this.chatRoom.code}&${this.chatRoom.userName}`)
 
-            this.socket = new WebSocket(`ws://192.168.100.44:8081/${this.chatRoom.code}&${this.chatRoom.userName}`)
+            this.socket = new WebSocket(`ws://172.20.10.2:8081/${this.chatRoom.code}&${this.chatRoom.userName}`)
             this.socket.addEventListener('open', (event: any) => {
 
                 // this.socket.send(JSON.stringify({
@@ -64,16 +68,26 @@ export default Vue.extend({
 
         receiveMessage(message: string){
             let decodedMessage: message = JSON.parse(message)
+            this.invibleNotificationButton.click()
 
             this.messages.push({
                 ...decodedMessage,
                 user: decodedMessage.user !== this.chatRoom.userName ? decodedMessage.user : 'Eu',
                 me: decodedMessage.user !== this.chatRoom.userName ? false : true
             })
+        },
+
+        playNotification(){
+            this.invibleNotificationButton = document.getElementById('notification')
+
+            if(this.invibleNotificationButton)
+                this.invibleNotificationButton.onclick = () => { this.ringtone.play() }
         }
     },
 
     mounted(){
+        this.ringtone = new Audio('~assets/audio/ringtone.mp3')
+        this.playNotification()
         this.connectSocket()
     }
 })

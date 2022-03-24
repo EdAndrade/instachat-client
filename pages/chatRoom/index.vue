@@ -52,6 +52,8 @@
                     <i class="fas fa-paper-plane"></i>
                 </button>
             </div>
+
+            <div id="notification"></div>
         </section>
     </section>
 
