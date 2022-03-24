@@ -11,7 +11,7 @@
             <form @submit.prevent>
 
                 <div class="input-validation">
-                    <input placeholder="Nome do chat" v-model="chatName" type="text" :class="{ warnInputs: warnInputs }">
+                    <input placeholder="Nome do chat" minlength="4" maxlength="25" v-model="chatName" type="text" :class="{ warnInputs: warnInputs }">
 
                     <div class="validations">
 
