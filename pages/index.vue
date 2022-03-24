@@ -73,6 +73,10 @@
 				this.chatCode = data.code
 				this.changeChatRoomRequestVisibility()
 			}
+		},
+
+		mounted(){
+			this.$store.commit('chat/CLEAN_CHATROOM')
 		}
 	});
 </script>
