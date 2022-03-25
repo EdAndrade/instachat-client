@@ -22,7 +22,7 @@ export default Vue.extend({
             socket,
             messages: Array<message>(),
             ringtone,
-            invibleNotificationButton
+            invibleNotificationButton,
         }
     },
 
@@ -92,5 +92,10 @@ export default Vue.extend({
         this.ringtone = new Audio('~assets/audio/ringtone.mp3')
         this.playNotification()
         this.connectSocket()
+    },
+
+    updated(){
+        let chatSectionHTMLElement: any = document.querySelector(".chatSection")
+        chatSectionHTMLElement.scrollTop = chatSectionHTMLElement.scrollHeight
     }
 })
