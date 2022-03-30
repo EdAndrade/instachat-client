@@ -5,7 +5,7 @@ export default Vue.extend({
     data(){
 
         return {
-            chatLink:'http://localhost:3000?chatCode=fdaswn21elsafdlkj;lkfadskfljfjldas',
+            chatLink:'',
             agentIsMobile: false,
             userAgentCode: ''
         }
@@ -20,11 +20,12 @@ export default Vue.extend({
         },
 
         openSMSApp(){
-            window.open(`sms://1900/${this.userAgentCode}body=${this.chatLink})`, '_blank')
+            window.open(`sms://1900/${this.userAgentCode}body=${this.chatLink}`, '_blank')
         }
     },
 
     mounted(){
+        this.chatLink = `${window.location.protocol}//${window.location.host}?chatCode=${this.$store.state.chat.chatRoom.code}`
         this.checkUserAgent()
     }
 })
