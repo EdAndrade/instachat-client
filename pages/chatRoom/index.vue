@@ -3,6 +3,8 @@
     <section id="chatRoomMain">
 
         <ConnectionModal v-if="connecting"/>
+        <ChatOptions/>
+
         <section id="content">
 
             <div class="header">

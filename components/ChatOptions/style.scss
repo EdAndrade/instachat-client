@@ -1,14 +1,14 @@
 #ChatOptions{
     width: 100vw;
     height: 100vh;
-    background: rgba($color-main-1, 0.8);
-    backdrop-filter: blur(4px);
+    background: rgba($color-main-1, 0.6);
+    backdrop-filter: blur(2px);
     display: flex;
     align-items: center;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 9000;
+    z-index: 9999999999;
 
     .closeButton{
         position: absolute;
@@ -23,7 +23,7 @@
     #box{
         width: 319px;
         height: auto;
-        background-color: $color-main-2;
+        background-color: $color-main-1;
         padding: 30px;
         border-radius: 10px;
         margin: auto;
@@ -44,52 +44,59 @@
             height: 100%;
             position: inherit;
 
-            .input-validation{
-                width: 100%;
-                margin-bottom: 10px;
+            .chatCodeLink{
+                margin-bottom: 20px;
+                text-align: center;
 
-                ::placeholder{
-                    color: rgba($color-light-4, 0.2);
-                }
-                
-                label{
-                    font-size: 0.82em;
-                    font-family: 'Roboto';
-                    font-weight: bold;
-                    color: $color-light-1;
-                    margin-left: 5px;
-                }
-                
-                input{
-                    width: 100%;
-                    height: 47px;
-                    background-color: $color-main-5;
-                    border-radius: 7px;
-                    padding-left: 15px;
-                    font-family: 'Roboto';
-                    font-weight: 600;
+                .linkIndication{
                     color: $color-light-4;
-                    transition: all 0.5s;
-                    margin-top: 5px;
+                    margin-left: 2px;
+                    font-size: 0.8em;
+                    margin-bottom: 5px;
                 }
 
-                .warnInputs{
-                    border: 1px solid red;
+                .link{
+                    background-color: $color-main-3;
+                    border-radius: 6px;
+                    white-space: nowrap;
+                    display: flex;
+                    align-items: center;
+                    overflow: hidden;
+                    position: relative;
+
+                    input{
+                        font-size: 0.8em;
+                        width: 100%;
+                        height: 100%;
+                        padding: 9px 25px 9px 9px;
+                        background-color: transparent;
+                        color: $color-light-1;
+                    }
+
+                    i{
+                        position: absolute;
+                        right: 9px;
+                        color: $color-light-4;
+                    }
                 }
             }
 
-            .button-loading{
-                margin-top: 64px;
+            button{
+                width: 100%;
+                border-radius: 6px;
+                padding: 7px;
+            }
 
-                button{
-                    width: 100%;
-                    border-radius: 7px;
-                    background-color: $color-main-6;
-                    color: $color-main-1;
-                    font-family: 'Roboto';
-                    font-weight: bold;
-                    height: 47px;
-                }
+            button.sendByMessage{
+                background-color: $color-main-2;
+                color: $color-light-4;
+            }
+
+            button.exit{
+                background-color: transparent;
+                border: 2px solid $color-main-2;
+                color: $color-light-4;
+                margin-top: 5px;
             }
         }
     }

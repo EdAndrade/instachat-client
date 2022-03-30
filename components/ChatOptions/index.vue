@@ -14,6 +14,21 @@
             
             <div class="optionsContent">
 
+                <div class="chatCodeLink">
+                    <p class="linkIndication">Clique para copiar o link do chat</p>
+                    <div class="link">
+                        <input v-model="chatLink" type="text">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                </div>
+
+                <button class="sendByMessage">
+                    Enviar link do chat por mensagem
+                </button>
+
+                <button class="exit">
+                    Sair da sala
+                </button>
             </div>
             
         </div>
