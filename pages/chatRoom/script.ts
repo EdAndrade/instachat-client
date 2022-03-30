@@ -23,6 +23,7 @@ export default Vue.extend({
             messages: Array<message>(),
             ringtone,
             invibleNotificationButton,
+            connecting: false
         }
     },
 
@@ -86,6 +87,18 @@ export default Vue.extend({
 
             if(this.invibleNotificationButton)
                 this.invibleNotificationButton.onclick = () => { this.ringtone.play() }
+        },
+
+        checkConnectionState(){
+
+            setInterval(() => {
+                let state = this.socket.readyState;
+                this.connecting = state === 0 ? true : false
+
+                if(state === 3 || state === 2){
+                    location.reload()
+                }
+            }, 1000)
         }
     },
 
@@ -93,6 +106,7 @@ export default Vue.extend({
         this.ringtone = new Audio('~assets/audio/ringtone.mp3')
         this.playNotification()
         this.connectSocket()
+        this.checkConnectionState()
     },
 
     updated(){

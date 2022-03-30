@@ -2,7 +2,7 @@
 
     <section id="chatRoomMain">
 
-        <ConnectionModal/>
+        <ConnectionModal v-if="connecting"/>
         <section id="content">
 
             <div class="header">
