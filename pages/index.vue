@@ -72,11 +72,21 @@
 			setChatCodeAndChangeChatRoomRequestVisibility(data: any){
 				this.chatCode = data.code
 				this.changeChatRoomRequestVisibility()
+			},
+
+			checkURLParams(){
+				const queryString = window.location.search
+				const urlParams = new URLSearchParams(queryString)
+				const chatCode = urlParams.get('chatCode')
+
+				if(chatCode)
+					this.setChatCodeAndChangeChatRoomRequestVisibility({ code: chatCode })
 			}
 		},
 
 		mounted(){
 			this.$store.commit('chat/CLEAN_CHATROOM')
+			this.checkURLParams()
 		}
 	});
 </script>
