@@ -34,6 +34,7 @@ export default Vue.extend({
 
             this.socket = new WebSocket(`ws://172.20.10.2:8081/${this.chatRoom.code}&${this.chatRoom.userName}`)
             this.socket.addEventListener('open', (event: any) => {
+                console.log(this.socket)
                 this.socket.send(JSON.stringify({
                     code: this.chatRoom.code,
                     message: {
@@ -52,7 +53,7 @@ export default Vue.extend({
             try{
 
                 if(window.navigator.vibrate)
-                window.navigator.vibrate(200);
+                    window.navigator.vibrate(200);
 
                 await this.socket.send(JSON.stringify({
                     code: this.chatRoom.code,
