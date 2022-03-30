@@ -5,7 +5,20 @@ export default Vue.extend({
     data(){
 
         return {
-            chatLink:'http://localhost:3000?chatCode=fdaswn21elsafdlkj;lkfadskfljfjldas'
+            chatLink:'http://localhost:3000?chatCode=fdaswn21elsafdlkj;lkfadskfljfjldas',
+            agentIsMobile: false
         }
+    },
+
+    methods: {
+
+        checkUserAgent(){
+            let userAgent = navigator.userAgent
+            this.agentIsMobile = userAgent.match(/Android/i) || userAgent.match(/iPhone/i) ? true : false
+        }
+    },
+
+    mounted(){
+        this.checkUserAgent()
     }
 })

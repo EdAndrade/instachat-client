@@ -22,7 +22,7 @@
                     </div>
                 </div>
 
-                <button class="sendByMessage">
+                <button class="sendByMessage" v-show="agentIsMobile">
                     Enviar link do chat por mensagem
                 </button>
 

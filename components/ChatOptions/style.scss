@@ -45,7 +45,6 @@
             position: inherit;
 
             .chatCodeLink{
-                margin-bottom: 20px;
                 text-align: center;
 
                 .linkIndication{
@@ -90,6 +89,7 @@
             button.sendByMessage{
                 background-color: $color-main-2;
                 color: $color-light-4;
+                margin-top: 20px;
             }
 
             button.exit{
