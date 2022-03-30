@@ -2,6 +2,7 @@
 
     <section id="chatRoomMain">
 
+        <ConnectionModal/>
         <section id="content">
 
             <div class="header">

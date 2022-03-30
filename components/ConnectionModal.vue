@@ -5,43 +5,32 @@
         <div id="content">
 
             <div id="mainLayer">
-
-                <div class="top">
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                </div>
-
-                <div class="bottom">
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                </div>
-
-                <div class="left">
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                </div>
-
-                <div class="right">
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                </div>
-
             </div>
 
             <div id="secondLayer">
-
             </div>
+
         </div>
+
+        <p>Conectando</p>
 
     </section>
 
 </template>
 
-<script>
+<script lang="ts">
 
-    export default {
+    import Vue from 'vue'
 
-    }
+    export default Vue.extend({
+
+        data(){
+
+            return {
+                
+            }
+        }
+    })
 
 </script>
 
@@ -53,24 +42,37 @@
         position: fixed;
         background-color: rgba($color-dark-1, 0.8);
         display: flex;
+        flex-flow: column;
         align-items: center;
         justify-content: center;
+        z-index: 9999999999 !important;
 
        #content{
-           width: 100px;
-           height: 100px;
-           padding: 15px;
-           background-color: $color-light-1;
-           border-radius: 100%;
+            width: 70px;
+            height: 70px;
+            padding: 10px;
+            background-color: $color-light-2;
+            border-radius: 100%;
+            position: relative;
 
-            #mainLayer{
-                width: 100%;
-                height: 100%;
-
-                .top{
-                    
-                }
+            #mainLayer, #secondLayer{
+                width: calc(100% - 20px);
+                height: calc(100% - 20px);
+                border-radius: 100%;
+                border: dashed 8px $color-main-2;
+                position: absolute;
             }
-       }
+
+            #secondLayer{
+                animation: loading infinite 2s linear;
+            }
+        }
+
+        p{
+            margin-top: 10px;
+            font-weight: bold;
+            color: $color-light-4;
+            font-size: 0.8em;
+        }
     }
 </style>
