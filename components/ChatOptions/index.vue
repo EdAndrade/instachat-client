@@ -26,7 +26,7 @@
                     Enviar link do chat por mensagem
                 </button>
 
-                <button class="exit">
+                <button class="exit" @click="$router.push('/')">
                     Sair da sala
                 </button>
             </div>

@@ -23,7 +23,8 @@ export default Vue.extend({
             messages: Array<message>(),
             ringtone,
             invibleNotificationButton,
-            connecting: false
+            connecting: false,
+            isChatOptionVisible: false
         }
     },
 
@@ -87,6 +88,10 @@ export default Vue.extend({
 
             if(this.invibleNotificationButton)
                 this.invibleNotificationButton.onclick = () => { this.ringtone.play() }
+        },
+
+        changeChatOptionVisibility(){
+            this.isChatOptionVisible = !this.isChatOptionVisible
         },
 
         checkConnectionState(){

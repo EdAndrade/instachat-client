@@ -3,7 +3,7 @@
     <section id="chatRoomMain">
 
         <ConnectionModal v-if="connecting"/>
-        <ChatOptions/>
+        <ChatOptions v-if="isChatOptionVisible" v-on:closeChatOptions="changeChatOptionVisibility"/>
 
         <section id="content">
 
@@ -24,7 +24,7 @@
                         Código do chat: <span>{{ chatRoom.code }}</span>
                     </p>
 
-                    <div class="copyToClipBoard">
+                    <div class="copyToClipBoard" @click="changeChatOptionVisibility">
                         <i class="far fa-clipboard"></i>
                     </div>
                 </div>
