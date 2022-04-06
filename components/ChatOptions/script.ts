@@ -20,7 +20,7 @@ export default Vue.extend({
         },
 
         openSMSApp(){
-            window.open(`sms://1900/${this.userAgentCode}body=${this.chatLink}`, '_blank')
+            window.open(`sms://${this.userAgentCode}body=${this.chatLink}`, '_blank')
         }
     },
 
