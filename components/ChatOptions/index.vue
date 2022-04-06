@@ -15,9 +15,9 @@
             <div class="optionsContent">
 
                 <div class="chatCodeLink">
-                    <p class="linkIndication">Clique para copiar o link do chat</p>
+                    <p class="linkIndication">Clique na secção abaixo para copiar o link do chat</p>
                     <div class="link">
-                        <input v-model="chatLink" type="text">
+                        <input v-model="chatLink" disabled type="text">
                         <i class="fas fa-clipboard-check"></i>
                     </div>
                 </div>
