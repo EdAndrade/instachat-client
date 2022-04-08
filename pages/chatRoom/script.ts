@@ -53,18 +53,18 @@ export default Vue.extend({
 
             try{
 
-                if(window.navigator.vibrate)
-                    window.navigator.vibrate(200);
+                if(this.userMessage!==''){
 
-                await this.socket.send(JSON.stringify({
-                    code: this.chatRoom.code,
-                    message: {
-                        data: this.userMessage,
-                        user: this.chatRoom.userName
-                    }
-                }))
+                    await this.socket.send(JSON.stringify({
+                        code: this.chatRoom.code,
+                        message: {
+                            data: this.userMessage,
+                            user: this.chatRoom.userName
+                        }
+                    }))
 
-                this.userMessage = ''
+                    this.userMessage = ''
+                }
 
             }catch(error){
 
