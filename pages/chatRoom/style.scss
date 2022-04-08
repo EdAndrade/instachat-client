@@ -93,7 +93,7 @@
             height: 30px;
             border-radius: 100%;
             transition: all 0.1s;
-            z-index: 10;
+            z-index: 99999999;
 
             &:active{
                 color: $color-light-4;
