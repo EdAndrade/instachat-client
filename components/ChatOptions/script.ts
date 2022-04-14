@@ -7,7 +7,14 @@ export default Vue.extend({
         return {
             chatLink:'',
             agentIsMobile: false,
-            userAgentCode: ''
+            userAgentCode: '',
+            copiedStatus: false
+        }
+    },
+
+    computed: {
+        isClipboardAvaible(){
+            return !!navigator.clipboard
         }
     },
 
@@ -21,6 +28,23 @@ export default Vue.extend({
 
         openSMSApp(){
             window.open(`sms://${this.userAgentCode}body=${this.chatLink}`, '_blank')
+        },
+
+        copyChatLinkToClipboard(){
+
+            var chatLink: any = document.getElementById("chatLink");
+            
+            if( navigator.clipboard && chatLink ){
+                chatLink.select();
+                chatLink.setSelectionRange(0, 99999);
+                navigator.clipboard.writeText(chatLink.value);
+                this.showCopiedStatus()
+            }
+        },
+
+        showCopiedStatus(){
+            this.copiedStatus = true
+            setTimeout( () => { this.copiedStatus = false }, 2000)
         }
     },
 

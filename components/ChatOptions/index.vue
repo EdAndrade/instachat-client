@@ -14,18 +14,18 @@
             
             <div class="optionsContent">
 
-                <div class="chatCodeLink">
+                <div class="chatCodeLink" v-if="isClipboardAvaible">
                     <p class="linkIndication">Clique na secção abaixo para copiar o link do chat</p>
-                    <div class="link">
-                        <input v-model="chatLink" disabled type="text">
+                    <div class="link" @click="copyChatLinkToClipboard()">
+                        <input v-model="chatLink" disabled type="text" id="chatLink">
                         <i class="fas fa-clipboard-check"></i>
                     </div>
 
-                    <div class="copiedStatus">
+                    <div class="copiedStatus" v-show="copiedStatus">
                         <div class="square"></div>
                         <p>Copiado</p>
                     </div>
-                    
+
                 </div>
 
                 <button class="sendByMessage" v-show="agentIsMobile" @click="openSMSApp()">

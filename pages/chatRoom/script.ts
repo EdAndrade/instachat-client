@@ -140,6 +140,7 @@ export default Vue.extend({
         this.playNotification()
         this.connectSocket()
         this.checkConnectionState()
+        // alert(window.isSecureContext)
     },
 
     updated(){
