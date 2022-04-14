@@ -35,8 +35,6 @@ export default Vue.extend({
         
         connectSocket(){
 
-            console.log(`${this.chatRoom.code}&${this.chatRoom.userName}`)
-
             this.socket = new WebSocket(`ws://${process.env.SERVER_IP}:8081/${this.chatRoom.code}&${this.chatRoom.userName}`)
             this.socket.addEventListener('open', (event: any) => {
                 this.socket.send(JSON.stringify({
