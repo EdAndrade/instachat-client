@@ -88,7 +88,6 @@ export default Vue.extend({
 
         receiveMessage(message: string){
             let decodedMessage: message = JSON.parse(message)
-            console.log(decodedMessage)
            
             let myMessage = this.messages.filter( localMessage => {
                 return decodedMessage.uuid === localMessage.uuid
@@ -109,11 +108,8 @@ export default Vue.extend({
 
         setMessageSendedStatusToTrue(messageUUID: string){
             this.messages.forEach( localMessage => {
-                console.log(localMessage.uuid, messageUUID)
                 if(messageUUID === localMessage.uuid)
                     localMessage.sendedMessage = true
-                console.log(localMessage)
-                console.log(this.messages)
             })
         },
 
