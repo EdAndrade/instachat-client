@@ -57,8 +57,11 @@ export default Vue.extend({
 
                 if(this.userMessage!==''){
 
+                    let uuid = uuidv4()
+
                     await this.socket.send(JSON.stringify({
                         code: this.chatRoom.code,
+                        uuid,
                         message: {
                             data: this.userMessage,
                             user: this.chatRoom.userName
@@ -75,11 +78,10 @@ export default Vue.extend({
 
         receiveMessage(message: string){
             let decodedMessage: message = JSON.parse(message)
-            let uuid = uuidv4()
+           
 
             this.messages.push({
                 ...decodedMessage,
-                uuid,
                 user: decodedMessage.user !== this.chatRoom.userName ? decodedMessage.user : 'Eu',
                 me: decodedMessage.user !== this.chatRoom.userName ? false : true
             })
