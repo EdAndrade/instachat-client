@@ -6,7 +6,7 @@ interface message{
     user: string,
     me: boolean,
     uuid: string,
-    status: boolean
+    sendedMessage: boolean
 }
 
 export default Vue.extend({
@@ -75,7 +75,7 @@ export default Vue.extend({
                         user: 'Eu',
                         me: true,
                         uuid,
-                        status: false
+                        sendedMessage: false
                     })
 
                     this.userMessage = ''
@@ -101,7 +101,20 @@ export default Vue.extend({
                     user: decodedMessage.user,
                     me: false
                 })
+
+            }else{
+                this.setMessageSendedStatusToTrue(decodedMessage.uuid)
             }
+        },
+
+        setMessageSendedStatusToTrue(messageUUID: string){
+            this.messages.forEach( localMessage => {
+                console.log(localMessage.uuid, messageUUID)
+                if(messageUUID === localMessage.uuid)
+                    localMessage.sendedMessage = true
+                console.log(localMessage)
+                console.log(this.messages)
+            })
         },
 
         playNotification(){
