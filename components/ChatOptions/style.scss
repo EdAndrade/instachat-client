@@ -46,6 +46,26 @@
 
             .chatCodeLink{
                 text-align: center;
+                position: relative;
+
+                .copiedStatus{
+                    position: absolute;
+                    background-color: $color-main-2;
+                    border-radius: 5px;
+                    font-size: 0.8em;
+                    padding: 9px;
+                    margin-top: 5px;
+                    color: rgba($color-light-2, 0.8);
+
+                    .square{
+                        width: 10px;
+                        height: 10px;
+                        background-color: $color-main-2;
+                        transform: rotate(45deg);
+                        position: absolute;
+                        top: -5px;
+                    }
+                }
 
                 .linkIndication{
                     color: $color-light-4;

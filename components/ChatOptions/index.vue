@@ -20,6 +20,12 @@
                         <input v-model="chatLink" disabled type="text">
                         <i class="fas fa-clipboard-check"></i>
                     </div>
+
+                    <div class="copiedStatus">
+                        <div class="square"></div>
+                        <p>Copiado</p>
+                    </div>
+                    
                 </div>
 
                 <button class="sendByMessage" v-show="agentIsMobile" @click="openSMSApp()">
