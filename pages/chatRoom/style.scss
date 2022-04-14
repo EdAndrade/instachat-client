@@ -141,7 +141,7 @@
                     display: inline-block;
                     width: auto;
                     max-width: 60%;
-                    padding: 10px 15px;
+                    padding: 10px 35px 10px 15px;
                     border-radius: 20px;
                     min-width: 100px;
                     font-size: 0.9em;
@@ -149,6 +149,7 @@
                     margin-top: 10px;
                     overflow-wrap: break-word;
                     animation: pulse 400ms ease-in-out;
+                    position: relative;
 
                     .theUser{
                         font-weight: bold;
@@ -157,6 +158,14 @@
 
                     &:last-child{
                         margin-bottom: 7px;
+                    }
+
+                    i{
+                        position: absolute;
+                        right: 0;
+                        bottom: 12px;
+                        right: 15px;
+                        font-size: 0.8em;
                     }
                 }
 
