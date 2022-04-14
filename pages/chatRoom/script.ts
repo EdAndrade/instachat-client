@@ -6,6 +6,7 @@ interface message{
     user: string,
     me: boolean,
     uuid: string,
+    status: boolean
 }
 
 export default Vue.extend({
@@ -73,7 +74,8 @@ export default Vue.extend({
                         data: this.userMessage,
                         user: 'Eu',
                         me: true,
-                        uuid
+                        uuid,
+                        status: false
                     })
 
                     this.userMessage = ''
