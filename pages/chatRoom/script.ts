@@ -58,15 +58,23 @@ export default Vue.extend({
                 if(this.userMessage!==''){
 
                     let uuid = uuidv4()
-
-                    await this.socket.send(JSON.stringify({
+                    let message = {
                         code: this.chatRoom.code,
                         uuid,
                         message: {
                             data: this.userMessage,
-                            user: this.chatRoom.userName
+                            user: this.chatRoom.userName,
+                            me: true
                         }
-                    }))
+                    }
+
+                    await this.socket.send(JSON.stringify(message))
+                    this.messages.push({
+                        data: this.userMessage,
+                        user: 'Eu',
+                        me: true,
+                        uuid
+                    })
 
                     this.userMessage = ''
                 }
@@ -78,13 +86,20 @@ export default Vue.extend({
 
         receiveMessage(message: string){
             let decodedMessage: message = JSON.parse(message)
+            console.log(decodedMessage)
            
-
-            this.messages.push({
-                ...decodedMessage,
-                user: decodedMessage.user !== this.chatRoom.userName ? decodedMessage.user : 'Eu',
-                me: decodedMessage.user !== this.chatRoom.userName ? false : true
+            let myMessage = this.messages.filter( localMessage => {
+                return decodedMessage.uuid === localMessage.uuid
             })
+
+            if(!myMessage.length){
+
+                this.messages.push({
+                    ...decodedMessage,
+                    user: decodedMessage.user,
+                    me: false
+                })
+            }
         },
 
         playNotification(){
