@@ -4,7 +4,8 @@ import {v4 as uuidv4} from 'uuid';
 interface message{
     data: string,
     user: string,
-    me: boolean
+    me: boolean,
+    uuid: string,
 }
 
 export default Vue.extend({
@@ -74,10 +75,11 @@ export default Vue.extend({
 
         receiveMessage(message: string){
             let decodedMessage: message = JSON.parse(message)
-            this.invibleNotificationButton.click()
+            let uuid = uuidv4()
 
             this.messages.push({
                 ...decodedMessage,
+                uuid,
                 user: decodedMessage.user !== this.chatRoom.userName ? decodedMessage.user : 'Eu',
                 me: decodedMessage.user !== this.chatRoom.userName ? false : true
             })
@@ -105,10 +107,6 @@ export default Vue.extend({
                 }
             }, 1000)
         },
-
-        generateUUID(){
-            return uuidv4();
-        }
     },
 
     mounted(){
