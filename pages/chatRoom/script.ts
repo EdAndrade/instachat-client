@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import {v4 as uuidv4} from 'uuid';
 
 interface message{
     data: string,
@@ -103,6 +104,10 @@ export default Vue.extend({
                     location.reload()
                 }
             }, 1000)
+        },
+
+        generateUUID(){
+            return uuidv4();
         }
     },
 
