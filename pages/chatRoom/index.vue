@@ -41,7 +41,7 @@
                     >
 
                         <div :class="{ 'my-message': message.me, 'other-user-message': !message.me }">
-                            <p class="theUser">{{ message.user }}</p>
+                            <p class="theUser" v-if="message.user">{{ message.user }}</p>
                             <p>{{ message.data }}</p>
                             <i v-if="message.sendedMessage && message.me" class="fas fa-check"></i>
                             <i v-if="(message.sendedMessage == false) && message.me" class="far fa-clock"></i>
