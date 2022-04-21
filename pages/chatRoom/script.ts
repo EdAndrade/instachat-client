@@ -129,9 +129,9 @@ export default Vue.extend({
                 this.connecting = state === 0 ? true : false
 
                 if(state === 3 || state === 2){
-                    location.reload()
+                    this.connectSocket()
                 }
-            }, 1000)
+            }, 100)
         },
     },
 
