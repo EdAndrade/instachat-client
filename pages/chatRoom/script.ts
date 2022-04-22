@@ -35,19 +35,24 @@ export default Vue.extend({
         
         connectSocket(){
 
-            this.socket = new WebSocket(`ws://${process.env.SERVER_IP}:8081/${this.chatRoom.code}&${this.chatRoom.userName}`)
-            this.socket.addEventListener('open', (event: any) => {
-                this.socket.send(JSON.stringify({
-                    code: this.chatRoom.code,
-                    message: {
-                        data: `[${this.chatRoom.userName}] entrou na sala`,
-                    }
-                }))
-            })
+            try{
+                this.socket = new WebSocket(`ws://${process.env.SERVER_IP}:8081/${this.chatRoom.code}&${this.chatRoom.userName}`)
+                this.socket.addEventListener('open', (event: any) => {
+                    this.socket.send(JSON.stringify({
+                        code: this.chatRoom.code,
+                        message: {
+                            data: `[${this.chatRoom.userName}] entrou na sala`,
+                        }
+                    }))
+                })
 
-            this.socket.addEventListener('message', (event: any) => {
-                this.receiveMessage(event.data)
-            })
+                this.socket.addEventListener('message', (event: any) => {
+                    this.receiveMessage(event.data)
+                })
+
+            }catch(error){
+                console.log(`Não foi possível conectar ao servidor, verifique usa internet ou contacte o administrador da aplicação`)
+            }
         },
 
         async sendMessage(){
