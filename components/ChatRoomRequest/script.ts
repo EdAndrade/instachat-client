@@ -49,13 +49,12 @@ export default  Vue.extend({
             this.gettingChatRoom = true
 
             this.getChatRoom(chatCode).then( response => {
-                this.handleChatRoomResponse(response.data)
+                this.handleChatRoomResponse(response)
             })
         },
 
-        handleChatRoomResponse(data: any){
-
-            if(data === null){
+        handleChatRoomResponse(response: any){
+            if(response.data.status === 404){
                 this.gettingChatRoom = false
                 this.$nuxt.$vs.notification({
                     progress: 'auto',
@@ -64,7 +63,16 @@ export default  Vue.extend({
                     title: 'Sala de chat não existe',
                     text: 'A sala de chat solicitada não existe'
                 })
-                
+            }
+            else if(response.data.status === 403){
+                this.gettingChatRoom = false
+                this.$nuxt.$vs.notification({
+                    progress: 'auto',
+                    color: '#dd2121',
+                    position: 'bottom-right',
+                    title: 'Sala de chat está cheia',
+                    text: 'A sala de chat solicitada atingiu o seu limite!'
+                })
             }else{
 
                 this.$nuxt.$vs.notification({
@@ -76,9 +84,9 @@ export default  Vue.extend({
                 })
 
                 this.$store.commit('chat/SET_CHATROOM', {
-                    code: data.code,
-                    name: data.name,
-                    usersQt: data.usersQt,
+                    code: response.data.code,
+                    name: response.data.name,
+                    usersQt: response.data.usersQt,
                     userName: this.userName
                 })
 
